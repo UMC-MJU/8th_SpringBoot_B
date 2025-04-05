@@ -38,9 +38,7 @@ Copyright © Sojung Park (Bei) All rights reserved.
 
 
 ## 🍀 Members
-| [![텍스트](없음)](없음) | [![텍스트]
-(없음)](없음) | [![텍스트]
-(없음)]([(https://avatars.githubusercontent.com/u/82094699?v=4)](https://github.com/Ochangmin524)) |
+| [![텍스트](https://avatars.githubusercontent.com/u/164713708?v=4)](https://github.com/dbalsk) | [![텍스트](https://avatars.githubusercontent.com/u/173240707?v=4)](https://github.com/rosejinse) | [![텍스트](https://avatars.githubusercontent.com/u/164713708?v=4)](https://github.com/hyeeeeon) |
 |:---:|:---:|:---:|
 | 민_권유민 | 쏘_진소은 | 현_이승현 |
 
