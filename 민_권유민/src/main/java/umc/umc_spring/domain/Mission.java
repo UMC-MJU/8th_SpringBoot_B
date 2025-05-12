@@ -23,7 +23,7 @@ public class Mission extends BaseEntity {
     @Column(nullable = false, length = 20)
     private String title; //미션명
 
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(columnDefinition = "TEXT")
     private String content; //미션 내용
 
     private Integer reward; //미션 보상
