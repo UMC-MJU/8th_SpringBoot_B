@@ -22,7 +22,7 @@ public class Review extends BaseEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content; //리뷰 내용
 
-    private Float rating; //평점
+    private Float score; //평점
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
