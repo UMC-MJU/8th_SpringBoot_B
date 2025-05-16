@@ -19,8 +19,10 @@ public class UmcSpringApplication{
 	public static void main(String[] args) {
 		SpringApplication.run(UmcSpringApplication.class, args);
 	}
+
 	@Bean
 	public CommandLineRunner run(ApplicationContext context) {
+		System.out.println("run");
 		return args -> {
 			try {
 				System.out.println("=== CommandLineRunner 시작 ===");
