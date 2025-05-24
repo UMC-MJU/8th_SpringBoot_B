@@ -2,12 +2,23 @@ package umc.entity;
 
 import umc.domain.common.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Member extends BaseEntity {
 
         @Id
@@ -27,6 +38,9 @@ public class Member extends BaseEntity {
 
         @Column(length = 50)
         private String address;
+
+        @Column(length = 100)
+        private String specAddress; // 상세 주소 필드 추가
 
         @Column(length = 15)
         private String food;
@@ -53,20 +67,4 @@ public class Member extends BaseEntity {
 
         @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
         private List<FavoriteFood> favoriteFoods = new ArrayList<>();
-
-        public Long getId() {
-                return id;
-        }
-
-        public String getName() { // 추가
-                return name;
-        }
-
-        public String getEmail() { // 추가
-                return email;
-        }
-
-        public Long getTotalPoints() {
-                return totalPoints;
-        }
 }

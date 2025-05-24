@@ -18,9 +18,7 @@ public class ReviewRepositoryImpl implements ReviewRepositoryCustom {
     @Override
     public List<ReviewListDTO> findReviewsByStoreId(Long storeId) {
         QReview r = QReview.review;
-        QMemberMission mm = QMemberMission.memberMission;
         QMember m = QMember.member;
-        QMission mi = QMission.mission;
         QStore s = QStore.store;
 
         return queryFactory
@@ -29,17 +27,14 @@ public class ReviewRepositoryImpl implements ReviewRepositoryCustom {
                         m.name.as("nickname"),
                         r.comment,
                         r.createdAt,
-                        mi.pointReward,
+                        r.rating, // rating 필드 유지
                         s.name.as("storeName")
                 ))
                 .from(r)
-                .join(mm).on(r.memberMission.eq(mm))
-                .join(m).on(mm.member.eq(m))
-                .join(mi).on(mm.mission.eq(mi))
-                .join(s).on(mi.store.eq(s))
+                .join(m).on(r.member.eq(m))
+                .join(s).on(r.store.eq(s))
                 .where(s.id.eq(storeId))
                 .orderBy(r.createdAt.desc())
                 .fetch();
     }
 }
-

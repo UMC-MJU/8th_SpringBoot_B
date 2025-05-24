@@ -4,17 +4,15 @@ import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import umc.dto.MemberMissionDTO;
-import umc.entity.QMember;
-import umc.entity.QMemberMission;
-import umc.entity.QMission;
-import umc.entity.QStore;
+import umc.dto.MemberMissionDTO; // DTO 클래스 가정
+import umc.entity.*;
 
 import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
 public class MemberMissionRepositoryImpl implements MemberMissionRepositoryCustom {
+
     private final JPAQueryFactory queryFactory;
 
     @Override
@@ -22,28 +20,24 @@ public class MemberMissionRepositoryImpl implements MemberMissionRepositoryCusto
         QMemberMission mm = QMemberMission.memberMission;
         QMission m = QMission.mission;
         QStore s = QStore.store;
-        QMember mb = QMember.member;
 
         return queryFactory
                 .select(Projections.constructor(
                         MemberMissionDTO.class,
-                        mm.id.as("missionId"),
-                        m.pointReward,
+                        mm.id,
+                        m.title,
                         s.name.as("storeName"),
                         mm.status,
                         mm.finish,
                         mm.completedAt
                 ))
                 .from(mm)
-                .innerJoin(m).on(mm.mission.id.eq(m.id))
-                .innerJoin(s).on(m.store.id.eq(s.id))
-                .innerJoin(mb).on(mm.member.id.eq(mb.id))
-                .where(mb.id.eq(memberId)
-                        .and(mm.status.in("progress", "completed")))
+                .join(m).on(mm.mission.eq(m))
+                .join(s).on(m.store.eq(s))
+                .where(mm.member.id.eq(memberId))
                 .orderBy(mm.completedAt.desc(), mm.id.desc())
                 .limit(limit)
                 .offset(offset)
                 .fetch();
     }
 }
-

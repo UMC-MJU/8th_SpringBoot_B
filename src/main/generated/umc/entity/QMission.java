@@ -26,6 +26,8 @@ public class QMission extends EntityPathBase<Mission> {
 
     public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
 
+    public final StringPath description = createString("description");
+
     public final DatePath<java.time.LocalDate> endDate = createDate("endDate", java.time.LocalDate.class);
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
@@ -34,9 +36,11 @@ public class QMission extends EntityPathBase<Mission> {
 
     public final StringPath missionCode = createString("missionCode");
 
-    public final NumberPath<Long> pointReward = createNumber("pointReward", Long.class);
+    public final NumberPath<Integer> pointReward = createNumber("pointReward", Integer.class);
 
     public final QStore store;
+
+    public final StringPath title = createString("title");
 
     public final DateTimePath<java.time.LocalDateTime> updatedAt = createDateTime("updatedAt", java.time.LocalDateTime.class);
 

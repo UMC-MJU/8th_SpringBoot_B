@@ -26,7 +26,8 @@ public class QMemberMission extends EntityPathBase<MemberMission> {
 
     public final DateTimePath<java.time.LocalDateTime> completedAt = createDateTime("completedAt", java.time.LocalDateTime.class);
 
-    public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
     public final BooleanPath finish = createBoolean("finish");
 
@@ -40,7 +41,8 @@ public class QMemberMission extends EntityPathBase<MemberMission> {
 
     public final StringPath status = createString("status");
 
-    public final DateTimePath<java.time.LocalDateTime> updatedAt = createDateTime("updatedAt", java.time.LocalDateTime.class);
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;
 
     public QMemberMission(String variable) {
         this(MemberMission.class, forVariable(variable), INITS);

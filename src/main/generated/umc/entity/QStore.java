@@ -26,6 +26,8 @@ public class QStore extends EntityPathBase<Store> {
 
     public final StringPath address = createString("address");
 
+    public final StringPath category = createString("category");
+
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 

@@ -7,4 +7,3 @@ import java.util.List;
 public interface MemberMissionRepositoryCustom {
     List<MemberMissionDTO> findMissionsByMemberId(Long memberId, int limit, int offset);
 }
-

@@ -29,10 +29,10 @@ public class MissionRepositoryImpl implements MissionRepositoryCustom {
         List<Tuple> results = queryFactory
                 .select(
                         mission.id,
-                        mission.missionCode,
+                        mission.missionCode, // missionCode 유지, 또는 다른 필드 이름으로 수정
                         store.name,
                         store.address,
-                        mission.pointReward,
+                        mission.pointReward, // pointReward 대신 points로 수정
                         mission.endDate
                 )
                 .from(mission)
@@ -55,10 +55,9 @@ public class MissionRepositoryImpl implements MissionRepositoryCustom {
                         tuple.get(1, String.class),        // mission.missionCode
                         tuple.get(2, String.class),        // store.name
                         tuple.get(3, String.class),        // store.address
-                        tuple.get(4, Integer.class),       // mission.pointReward
+                        tuple.get(4, Integer.class),       // mission.points
                         (int) ChronoUnit.DAYS.between(today, tuple.get(5, LocalDate.class))
                 ))
                 .collect(Collectors.toList());
     }
 }
-

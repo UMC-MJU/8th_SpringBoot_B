@@ -1,11 +1,15 @@
 package umc.entity;
 
 import jakarta.persistence.Embeddable;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
+@Getter
+@Setter
 public class FavoriteFoodId implements Serializable{
 
     private Long memberId;
@@ -26,4 +30,3 @@ public class FavoriteFoodId implements Serializable{
         return Objects.hash(memberId, foodId);
     }
 }
-

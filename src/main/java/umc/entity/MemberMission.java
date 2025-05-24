@@ -1,5 +1,6 @@
 package umc.entity;
 
+import lombok.*;
 import umc.domain.common.BaseEntity;
 import jakarta.persistence.*;
 
@@ -8,6 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MemberMission extends BaseEntity {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,18 +27,13 @@ public class MemberMission extends BaseEntity {
         @JoinColumn(name = "mission_id")
         private Mission mission;
 
-        @Column(length = 50)
+        @Column(length = 15)
         private String status;
 
-        @Column(nullable = false)
-        private Boolean finish;
-
-        @Column
+        private boolean finish;
         private LocalDateTime completedAt;
 
-        private LocalDateTime createdAt;
-        private LocalDateTime updatedAt;
-
+        @Builder.Default
         @OneToMany(mappedBy = "memberMission", cascade = CascadeType.ALL)
         private List<Review> reviews = new ArrayList<>();
 }

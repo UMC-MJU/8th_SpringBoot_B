@@ -48,6 +48,8 @@ public class QMember extends EntityPathBase<Member> {
 
     public final ListPath<SocialLogin, QSocialLogin> socialLogins = this.<SocialLogin, QSocialLogin>createList("socialLogins", SocialLogin.class, QSocialLogin.class, PathInits.DIRECT2);
 
+    public final StringPath specAddress = createString("specAddress");
+
     public final StringPath status = createString("status");
 
     public final NumberPath<Long> totalPoints = createNumber("totalPoints", Long.class);
