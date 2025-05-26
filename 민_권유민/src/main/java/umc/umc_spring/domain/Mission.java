@@ -48,4 +48,8 @@ public class Mission extends BaseEntity {
                 ", store=" + (store != null ? store.getName() : "null") +
                 '}';
     }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
 }

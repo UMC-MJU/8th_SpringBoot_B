@@ -1,19 +1,16 @@
-package umc.umc_spring.service;
+package umc.umc_spring.service.MemberService;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.umc_spring.domain.Member;
-import umc.umc_spring.domain.Mission;
 import umc.umc_spring.repository.MemberRepository.MemberRepository;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class MemberQueryServiceImpl implements MemberQueryService{
+public class MemberQueryServiceImpl implements MemberQueryService {
     private final MemberRepository memberRepository;
 
     @Override

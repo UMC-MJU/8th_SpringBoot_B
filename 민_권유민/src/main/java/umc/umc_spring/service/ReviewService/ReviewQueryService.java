@@ -1,4 +1,4 @@
-package umc.umc_spring.service;
+package umc.umc_spring.service.ReviewService;
 
 import umc.umc_spring.domain.Store;
 

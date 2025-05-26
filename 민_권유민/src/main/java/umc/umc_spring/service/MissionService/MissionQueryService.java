@@ -1,4 +1,4 @@
-package umc.umc_spring.service;
+package umc.umc_spring.service.MissionService;
 
 import umc.umc_spring.domain.Mission;
 

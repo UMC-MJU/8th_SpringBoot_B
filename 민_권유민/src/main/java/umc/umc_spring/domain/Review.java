@@ -32,4 +32,11 @@ public class Review extends BaseEntity {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    public void setStore(Store store) {
+        this.store = store;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
 }
