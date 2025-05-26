@@ -1,16 +1,11 @@
 package umc.umc_spring;
 
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import umc.umc_spring.domain.Member;
-import umc.umc_spring.service.MemberQueryService;
-import umc.umc_spring.service.MissionQueryService;
-import umc.umc_spring.service.StoreQueryService;
 
 @SpringBootApplication
 @EnableJpaAuditing
@@ -28,7 +23,7 @@ public class UmcSpringApplication{
 				System.out.println("=== CommandLineRunner 시작 ===");
 
 				//가게 조회
-				StoreQueryService storeService = context.getBean(StoreQueryService.class);
+				/*StoreQueryService storeService = context.getBean(StoreQueryService.class);
 
 				String name = "요아정";
 				Float score = 4.0f;
@@ -70,7 +65,7 @@ public class UmcSpringApplication{
 				} catch (EntityNotFoundException e) {
 					System.out.println("회원을 찾을 수 없습니다: " + e.getMessage());
 				}
-
+*/
 			} catch (Exception e) {
 				System.out.println("예외 발생!");
 				e.printStackTrace();  // 여기서 무슨 문제인지 확인 가능

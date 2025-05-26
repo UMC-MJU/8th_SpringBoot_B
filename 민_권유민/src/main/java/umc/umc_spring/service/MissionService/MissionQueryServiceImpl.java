@@ -1,11 +1,10 @@
-package umc.umc_spring.service;
+package umc.umc_spring.service.MissionService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.umc_spring.domain.Mission;
 import umc.umc_spring.repository.MissionRepository.MissionRepository;
-import umc.umc_spring.repository.MissionRepository.MissionRepositoryCustom;
 
 import java.util.List;
 
