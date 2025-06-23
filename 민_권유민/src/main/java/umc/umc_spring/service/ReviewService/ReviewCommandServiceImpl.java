@@ -1,6 +1,8 @@
 package umc.umc_spring.service.ReviewService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import umc.umc_spring.converter.ReviewConverter;
 import umc.umc_spring.domain.Member;
@@ -28,4 +30,13 @@ public class ReviewCommandServiceImpl implements ReviewCommandService{
 
         return reviewRepository.save(review);
     }
+
+    @Override
+    public Page<Review> getReviewList(Long StoreId, Integer page) {
+        Store store = storeRepository.findById(StoreId).get();
+
+        Page<Review> StorePage = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
+        return StorePage;
+    }
+
 }
